@@ -3,7 +3,7 @@ import Cart from '../Cart/Cart';
 
 const OrderSm = (props) => {
     const [cart] = [props.cart]
-    //console.log(cart);
+    console.log(cart);
     let total = 0;
     let totalShipping= 0;
     for(let product of cart){

@@ -1,20 +1,45 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb, getShoppingCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import OrderSm from '../Order-Summary/OrderSm';
 import Product from '../Product/Product';
 
-const Order = () => {
+const Shop = () => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState([])
+
+
+
     useEffect(() => {
         fetch('products.json')
           .then(res => res.json())
           .then(data => setProducts(data))
     }, [])
 
+    useEffect( ()=>{
+        const storedCard = getShoppingCart();
+        const saveCart = []
+        // step 1S
+        if(products.length){
+            for(const id in storedCard){
+                // step 2
+                const addedProduct = products.find((product) => product.id === id);
+
+                const quantity = storedCard[id];
+                addedProduct.quantity = quantity
+                saveCart.push(addedProduct);
+                //console.log(addedProduct);
+            }
+        }
+        setCart(saveCart)
+    } , [products])
+
+
+
     const handlerAddCart = (product) =>{
         const newCart = [...cart, product]
         setCart(newCart)
+        addToDb(product.id)
     }
     return (
         <div className='grid lg:grid-cols-5 md:grid-cols-1 gap-8 container-lg mx-12'>
@@ -33,4 +58,4 @@ const Order = () => {
     );
 };
 
-export default Order;
+export default Shop;
