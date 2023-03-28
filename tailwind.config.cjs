@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  mytheme: {
+  theme: {
     primary: "#3b4fbf",
 
     secondary: "#c6fcae",
@@ -16,7 +16,7 @@ module.exports = {
 
     success: "#60DCAB",
 
-    warning: "#FFE0B3",
+    warning: "rgba(255, 153, 0, 0.3)",
 
     error: "#FF3030",
     extends: {},

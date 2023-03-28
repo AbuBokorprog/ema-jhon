@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
+import OrderSm from '../Order-Summary/OrderSm';
 import Product from '../Product/Product';
 
 const Order = () => {
@@ -25,12 +26,8 @@ const Order = () => {
                     ))
                 }
             </div>
-            <div className=' text-center bg-warning rounded-xl mt-2 sm:justify-content-center'>
-            <p className='text-xl font-semibold'>Order Summary</p>
-            <p className='font-medium'>Total Cart items: {cart.length}</p>
-            {
-                cart.map((item) => <Cart key={item.id} item={item}></Cart>)
-            }
+            <div className=' h-1/5 pt-5 bg-warning rounded-xl sm:justify-content-center'>
+                <OrderSm cart={cart}></OrderSm>
             </div>
         </div>
     );
