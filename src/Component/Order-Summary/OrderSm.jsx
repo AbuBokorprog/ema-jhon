@@ -10,7 +10,7 @@ const OrderSm = (props) => {
     total = total + product.price * product.quantity;
     totalShipping += product.shipping * product.quantity;
     quantity = product.quantity;
-    console.log(quantity);
+    //console.log(quantity);
   }
   const tax = (total * 5) / 100;
   const grandTotal = total + totalShipping + tax;
