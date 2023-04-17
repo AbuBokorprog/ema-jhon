@@ -4,7 +4,7 @@ const OrderSm = (props) => {
   const [cart] = [props.cart];
   const handlerClearCart = props.handlerClearCart;
   const children = props.children;
-  console.log(children);
+  //console.log(children);
   //console.log(cart);
   let total = 0;
   let totalShipping = 0;
