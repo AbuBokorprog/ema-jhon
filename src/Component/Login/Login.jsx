@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
@@ -7,6 +7,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   //console.log(location);
+  const [show, setShow] = useState(false);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -53,11 +54,20 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={show ? "text" : "password"}
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
                 />
+                <p onClick={() => setShow(!show)}>
+                  <small>
+                    {show ? (
+                      <span>Hide password</span>
+                    ) : (
+                      <span>Show password</span>
+                    )}
+                  </small>
+                </p>
                 <label className="label">
                   <Link to="#" className="label-text-alt link link-hover">
                     Forgot password?
