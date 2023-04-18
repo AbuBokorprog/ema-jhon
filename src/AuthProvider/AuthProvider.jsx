@@ -16,10 +16,12 @@ const AuthProvider = ({ children }) => {
   const [loader, setLoader] = useState(true);
 
   const createUserRegister = (email, password) => {
+    setLoader(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signInUser = (email, password) => {
+    setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
